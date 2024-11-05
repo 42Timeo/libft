@@ -1,0 +1,23 @@
+https://nemequ.github.io/munit/
+https://criterion.readthedocs.io/en/stable/
+https://github.com/Snaipe/Criterion/blob/bleeding/samples/parameterized.c
+https://github.com/Snaipe/Criterion/blob/bleeding/samples/theories.c
+use bool instead of ints
+better argument names
+makefile relink and a lot worse
+maybe replace weird return values (like 1024) by just 1
+why take an int if the value must be an uchar
+do not skip the tests
+should it crash when passing null, or return zero
+optimize ft_is?? function by using bitwise operator
+first check if lower than n, and then check if it's not zero, in this order (not done in the example ft_strncmp, ft_strnstr)
+use valgrind to check memory error (out of range access)
+ft_atoi double overflow but it's fine
+in ft_substr, what if start is after the end of s
+check the static function in ft_strtrim and ft_split
+does ft_split require not empty str, like in piscine or not
+todo: ft_itoa ft_putnbr_fd
+verify that static function are only accessible in one file
+what does const
+does static variable are ok in the norm
+how does static function translate in assembly

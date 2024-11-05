@@ -1,0 +1,8 @@
+CompileFlags:
+  Compiler: clang
+  Add: [ -Wall, -Wextra, -Werror, -I/home/sky/doc/cours/42/libft/include ]
+---
+If:
+  PathMatch: tests/.*
+CompileFlags:
+  Add: [ -I/home/sky/doc/cours/42/libft/criterion/include, -L/home/sky/doc/cours/42/libft/criterion/lib, -lcriterion ]
