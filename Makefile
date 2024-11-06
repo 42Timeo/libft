@@ -73,7 +73,7 @@ bonus: $(NAME) $(BONUS_OBJS)
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
-	
+
 fclean: clean
 	rm -f $(NAME)
 
