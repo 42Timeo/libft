@@ -1,5 +1,5 @@
 # add normal functions to bonus rule
-# should we remake the lin wen the header change
+# should we remake the lib when the header change
 
 NAME = libft.a
 
@@ -62,12 +62,11 @@ BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) libft.h
+$(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-# TODO: bonus does the default, and then add to the libft.a using an ar command
-bonus: $(OBJS) $(BONUS_OBJS) libft.h
-	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus: $(NAME) $(BONUS_OBJS)
+	ar rcs $(NAME) $(BONUS_OBJS)
 
 %.o: %.c libft.h
 	$(CC) -c $(CFLAGS) $< -o $@
