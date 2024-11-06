@@ -4,7 +4,7 @@
 NAME = libft.a
 
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -g3 # TODO: remove debugging flag
+CFLAGS = -Wall -Wextra -Werror
 
 SRCS = \
 	ft_isalpha.c \
