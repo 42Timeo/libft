@@ -8,8 +8,6 @@
 
 // $(CC) -Wall -Wextra -Werror libft.a tests/*
 
-// cmocka
-
 /*
 	strlcpy
 	strlcat
@@ -31,13 +29,13 @@ void check_functions_with_chars(void)
 {
 	for (int i = 0; i <= UCHAR_MAX; i++)
 	{
-		assert(isalpha(i) == isalpha(i));
-		assert(isdigit(i) == isdigit(i));
-		assert(isalnum(i) == isalnum(i));
-		assert(isascii(i) == isascii(i));
-		assert(isprint(i) == isprint(i));
-		assert(toupper(i) == toupper(i));
-		assert(tolower(i) == tolower(i));
+		assert(!ft_isalpha(i) == !isalpha(i));
+		assert(!ft_isdigit(i) == !isdigit(i));
+		assert(!ft_isalnum(i) == !isalnum(i));
+		assert(!ft_isascii(i) == !isascii(i));
+		assert(!ft_isprint(i) == !isprint(i));
+		assert(!ft_toupper(i) == !toupper(i));
+		assert(!ft_tolower(i) == !tolower(i));
 	}
 }
 
@@ -54,7 +52,7 @@ void check_strlen(void)
 		"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
 	};
 	for (size_t i = 0; i < (sizeof(strs) / sizeof(strs[0])); i++)
-		assert(strlen(strs[i]) == strlen(strs[i]));
+		assert(ft_strlen(strs[i]) == strlen(strs[i]));
 }
 
 void check_memset(void)
@@ -62,19 +60,19 @@ void check_memset(void)
 	char buf1[1024];
 	char buf2[1024];
 
-	memset(buf1, 99, 1024);
+	ft_memset(buf1, 99, 1024);
 	memset(buf2, 99, 1024);
 	assert(memcmp(buf1, buf2, 1024) == 0);
 
-	memset(buf1, 1, 1024);
+	ft_memset(buf1, 1, 1024);
 	memset(buf2, 1, 1024);
 	assert(memcmp(buf1, buf2, 1024) == 0);
 
-	memset(buf1, 42, (0));
+	ft_memset(buf1, 42, (0));
 	memset(buf2, 42, (0));
 	assert(memcmp(buf1, buf2, 1024) == 0);
 
-	bzero(buf1, 1024);
+	ft_bzero(buf1, 1024);
 	bzero(buf2, 1024);
 	assert(memcmp(buf1, buf2, 1024) == 0);
 }
@@ -84,33 +82,36 @@ void check_memcpy(void)
 	char buf1[1024] = { 0 };
 	char buf2[1024] = { 0 };
 
-	memcpy(buf1, "abcdef", 5);
+	ft_memcpy(buf1, "abcdef", 5);
 	memcpy(buf2, "abcdef", 5);
 	assert(memcmp(buf1, buf2, 1024) == 0);
 
-	memcpy(buf1, "\xff\x00\xaa\0\xee", 5);
+	ft_memcpy(buf1, "\xff\x00\xaa\0\xee", 5);
 	memcpy(buf2, "\xff\x00\xaa\0\xee", 5);
 	assert(memcmp(buf1, buf2, 1024) == 0);
 }
 
 void check_memmove(void)
 {
-	char buf1[1024] = "abcdef";
-	char buf2[1024] = "abcdef";
+	char buf1[1024] = { 0 };
+	char buf2[1024] = { 0 };
+	strcpy(buf1, "abcdef");
+	strcpy(buf2, "abcdef");
 
-	memmove(buf1+1, buf1, 10);
+	ft_memmove(buf1+1, buf1, 10);
 	memmove(buf2+1, buf2, 10);
+	printf("%s\n", buf1);
 	assert(memcmp(buf1, buf2, 1024) == 0);
 	
-	memmove(buf1, buf1+1, 10);
+	ft_memmove(buf1, buf1+1, 10);
 	memmove(buf2, buf2+1, 10);
 	assert(memcmp(buf1, buf2, 1024) == 0);
 	
-	memmove(buf1, buf1, 10);
+	ft_memmove(buf1, buf1, 10);
 	memmove(buf2, buf2, 10);
 	assert(memcmp(buf1, buf2, 1024) == 0);
 	
-	memmove(buf1+512, buf1, 10);
+	ft_memmove(buf1+512, buf1, 10);
 	memmove(buf2+512, buf2, 10);
 	assert(memcmp(buf1, buf2, 1024) == 0);
 }
@@ -131,19 +132,19 @@ void check_strchr(void)
 	for (size_t i = 0; i < (sizeof(strs) / sizeof(strs[0])); i++)
 		for (size_t j = 0; j < (sizeof(chars) - 1); j++)
 		{
-			assert(strchr(strs[i], chars[j]) == strchr(strs[i], chars[j]));
-			assert(strrchr(strs[i], chars[j]) == strrchr(strs[i], chars[j]));
+			assert(ft_strchr(strs[i], chars[j]) == strchr(strs[i], chars[j]));
+			assert(ft_strrchr(strs[i], chars[j]) == strrchr(strs[i], chars[j]));
 		}
 }
 
 void check_strncmp(void)
 {
-	assert(strncmp("abcdef", "abcdef", 60) == strncmp("abcdef", "abcdef", 60));
-	assert(strncmp("abcdef", "abcdef", 6) == strncmp("abcdef", "abcdef", 6));
-	assert(strncmp("abcdef", "abcdeg", 6) == strncmp("abcdef", "abcdeg", 6));
-	assert(strncmp("abcdef", "abcdeg", 5) == strncmp("abcdef", "abcdeg", 5));
-	assert(strncmp("X", "X", 1) == strncmp("X", "X", 1));
-	assert(strncmp("X", "Z", 0) == strncmp("X", "Z", 0));
+	assert(ft_strncmp("abcdef", "abcdef", 60) == strncmp("abcdef", "abcdef", 60));
+	assert(ft_strncmp("abcdef", "abcdef", 6) == strncmp("abcdef", "abcdef", 6));
+	assert(ft_strncmp("abcdef", "abcdeg", 6) == strncmp("abcdef", "abcdeg", 6));
+	assert(ft_strncmp("abcdef", "abcdeg", 5) == strncmp("abcdef", "abcdeg", 5));
+	assert(ft_strncmp("X", "X", 1) == strncmp("X", "X", 1));
+	assert(ft_strncmp("X", "Z", 0) == strncmp("X", "Z", 0));
 }
 
 void check_memchr(void)
@@ -162,34 +163,34 @@ void check_memchr(void)
 	for (size_t i = 0; i < (sizeof(strs) / sizeof(strs[0])); i++)
 		for (size_t j = 0; j < (sizeof(chars) - 1); j++)
 		{
-			assert(memchr(strs[i], chars[j], 1024) == memchr(strs[i], chars[j], 1024));
+			assert(ft_memchr(strs[i], chars[j], 1024) == memchr(strs[i], chars[j], 1024));
 		}
 }
 
 void check_atoi(void)
 {
-	assert(atoi("") == atoi(""));
-	assert(atoi("abc") == atoi("abc"));
-	assert(atoi("1abc") == atoi("1abc"));
-	assert(atoi(" 1a") == atoi(" 1a"));
-	assert(atoi("-1a") == atoi("-1a"));
-	assert(atoi("1") == atoi("1"));
-	assert(atoi("0") == atoi("0"));
-	assert(atoi("-0") == atoi("-0"));
-	assert(atoi("10") == atoi("10"));
-	assert(atoi("-10") == atoi("-10"));
-	assert(atoi("1234567890") == atoi("1234567890"));
-	assert(atoi("2147483647") == atoi("2147483647"));
-	assert(atoi("-2147483648") == atoi("-2147483648"));
+	assert(ft_atoi("") == atoi(""));
+	assert(ft_atoi("abc") == atoi("abc"));
+	assert(ft_atoi("1abc") == atoi("1abc"));
+	assert(ft_atoi(" 1a") == atoi(" 1a"));
+	assert(ft_atoi("-1a") == atoi("-1a"));
+	assert(ft_atoi("1") == atoi("1"));
+	assert(ft_atoi("0") == atoi("0"));
+	assert(ft_atoi("-0") == atoi("-0"));
+	assert(ft_atoi("10") == atoi("10"));
+	assert(ft_atoi("-10") == atoi("-10"));
+	assert(ft_atoi("1234567890") == atoi("1234567890"));
+	assert(ft_atoi("2147483647") == atoi("2147483647"));
+	assert(ft_atoi("-2147483648") == atoi("-2147483648"));
 }
 
 void check_memcmp(void)
 {
-	assert(memcmp("abcdef", "abcdef", 6) == memcmp("abcdef", "abcdef", 6));
-	assert(memcmp("abcdef", "abcdeg", 6) == memcmp("abcdef", "abcdeg", 6));
-	assert(memcmp("abcdef", "abcdeg", 5) == memcmp("abcdef", "abcdeg", 5));
-	assert(memcmp("X", "X", 1) == memcmp("X", "X", 1));
-	assert(memcmp("X", "Z", 0) == memcmp("X", "Z", 0));
+	assert(ft_memcmp("abcdef", "abcdef", 6) == memcmp("abcdef", "abcdef", 6));
+	assert(ft_memcmp("abcdef", "abcdeg", 6) == memcmp("abcdef", "abcdeg", 6));
+	assert(ft_memcmp("abcdef", "abcdeg", 5) == memcmp("abcdef", "abcdeg", 5));
+	assert(ft_memcmp("X", "X", 1) == memcmp("X", "X", 1));
+	assert(ft_memcmp("X", "Z", 0) == memcmp("X", "Z", 0));
 }
 
 void check_strnstr(void)
