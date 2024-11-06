@@ -4,6 +4,7 @@ https://github.com/Snaipe/Criterion/blob/bleeding/samples/parameterized.c
 https://github.com/Snaipe/Criterion/blob/bleeding/samples/theories.c
 https://cmocka.org/
 https://github.com/xicodomingues/francinette
+https://www.gnu.org/software/make/manual/html_node/Automatic-Prerequisites.html
 use bool instead of ints
 better argument names
 makefile relink and a lot worse
@@ -25,3 +26,4 @@ does static variable are ok in the norm
 how does static function translate in assembly
 how to handle bonus in header file
 remove test folder
+include headers in libft.h

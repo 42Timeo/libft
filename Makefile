@@ -1,4 +1,5 @@
 # add normal functions to bonus rule
+# should we remake the lin wen the header change
 
 NAME = libft.a
 
