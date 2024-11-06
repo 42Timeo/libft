@@ -4,7 +4,7 @@
 NAME = libft.a
 
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -g3 # TODO: remove debugging
+CFLAGS = -Wall -Wextra -Werror -g3 # TODO: remove debugging flag
 
 SRCS = \
 	ft_isalpha.c \
@@ -41,7 +41,7 @@ SRCS = \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
-	ft_putnbr_fd.c \
+	ft_putnbr_fd.c
 
 BONUS_SRCS = \
 	ft_lstnew.c \

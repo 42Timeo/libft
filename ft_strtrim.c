@@ -21,7 +21,7 @@ static int	is_in(char c, const char *s)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*_ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;
@@ -40,4 +40,23 @@ char	*ft_strtrim(char const *s1, char const *set)
 		str[end - start] = 0;
 	}
 	return (str);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	i;
+	char	*s2;
+
+	while (is_in(*s1, set))
+		s1++;
+	i = ft_strlen(s1);
+	while (i != 0 && is_in(s1[i - 1], set))
+		i--;
+	s2 = malloc(i + 1);
+	if (s2)
+	{
+		ft_memcpy(s2, s1, i);
+		s2[i] = 0;
+	}
+	return (s2);
 }

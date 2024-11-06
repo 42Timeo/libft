@@ -100,7 +100,6 @@ void check_memmove(void)
 
 	ft_memmove(buf1+1, buf1, 10);
 	memmove(buf2+1, buf2, 10);
-	printf("%s\n", buf1);
 	assert(memcmp(buf1, buf2, 1024) == 0);
 	
 	ft_memmove(buf1, buf1+1, 10);
