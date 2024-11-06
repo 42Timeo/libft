@@ -20,9 +20,20 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (!lst)
 		return (NULL);
 	node = malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
 	node->content = f(lst->content);
-	node->next = ft_lstmap(lst->next, f, del);
-	del(lst->content);
-	free(lst);
+	if (lst->next)
+	{
+		node->next = ft_lstmap(lst->next, f, del);
+		if (node->next == NULL)
+		{
+			del(node->content);
+			free(node);
+			return (NULL);
+		}
+	}
+	else
+		node->next = NULL;
 	return (node);
 }
