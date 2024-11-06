@@ -2,6 +2,8 @@ https://nemequ.github.io/munit/
 https://criterion.readthedocs.io/en/stable/
 https://github.com/Snaipe/Criterion/blob/bleeding/samples/parameterized.c
 https://github.com/Snaipe/Criterion/blob/bleeding/samples/theories.c
+https://cmocka.org/
+https://github.com/xicodomingues/francinette
 use bool instead of ints
 better argument names
 makefile relink and a lot worse
@@ -21,3 +23,5 @@ verify that static function are only accessible in one file
 what does const
 does static variable are ok in the norm
 how does static function translate in assembly
+how to handle bonus in header file
+remove test folder
