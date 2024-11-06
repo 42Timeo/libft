@@ -27,3 +27,4 @@ how does static function translate in assembly
 how to handle bonus in header file
 remove test folder
 include headers in libft.h
+check every malloc
