@@ -13,10 +13,6 @@
 #include <stdlib.h>
 #include "libft.h"
 
-// be carefull when c is \0
-// won't have empty strings or strings with c in them
-// what to do when c is \0
-
 static size_t	count_number_of_strings(char const *s, char c)
 {
 	size_t	counter;
@@ -91,14 +87,3 @@ char	**ft_split(char const *s, char c)
 	strs[number_of_strs] = NULL;
 	return (strs);
 }
-
-/* #include <stdio.h>
-int main(void)
-{
-	// printf("%zu\n", count_number_of_strings("--abc----def--sasad-è--", '-'));
-	char **strs = ft_split("----abc----def--sasad-è--", '-');
-	printf("strs = %p\n", strs);
-	for (int i = 0; strs[i]; i++)
-		printf("strs[%d] = \"%s\"\n", i, strs[i]);
-	return (0);
-} */

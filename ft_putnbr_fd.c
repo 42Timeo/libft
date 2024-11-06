@@ -12,8 +12,6 @@
 
 #include <unistd.h>
 
-// three way to do it: recusif, iteratif, reverse
-
 static int	abs(int n)
 {
 	if (n < 0)

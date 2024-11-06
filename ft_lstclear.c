@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void	recursive_free(t_list *lst, void (*del)(void *))
+static void	recursive_free(t_list *lst, void (*del)(void *))
 {
 	if (lst)
 	{
