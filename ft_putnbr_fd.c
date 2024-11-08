@@ -6,7 +6,7 @@
 /*   By: tdaclin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:23:20 by tdaclin           #+#    #+#             */
-/*   Updated: 2024/11/06 10:23:21 by tdaclin          ###   ########.fr       */
+/*   Updated: 2024/11/08 13:29:09 by tdaclin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,3 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	write(fd, str + i, 11 - i);
 }
-
-/* #include <limits.h>
-#include <stdio.h>
-int main(void)
-{
-	_ft_putnbr_fd(INT_MIN, 1);
-	printf("\n");
-	_ft_putnbr_fd(INT_MAX, 1);
-	printf("\n");
-	_ft_putnbr_fd(0, 1);
-	printf("\n");
-	_ft_putnbr_fd(-42, 1);
-	printf("\n");
-	_ft_putnbr_fd(42, 1);
-	printf("\n");
-	return (0);
-} */

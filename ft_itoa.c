@@ -6,7 +6,7 @@
 /*   By: tdaclin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:22:53 by tdaclin           #+#    #+#             */
-/*   Updated: 2024/11/06 10:22:54 by tdaclin          ###   ########.fr       */
+/*   Updated: 2024/11/08 13:30:36 by tdaclin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,3 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-
-/* #include <limits.h>
-#include <stdio.h>
-int main(void)
-{
-	printf("%s\n", ft_itoa(0));
-	printf("%s\n", ft_itoa(1));
-	printf("%s\n", ft_itoa(-1));
-	printf("%s\n", ft_itoa(42));
-	printf("%s\n", ft_itoa(-42));
-	printf("%s\n", ft_itoa(INT_MAX));
-	printf("%s\n", ft_itoa(INT_MIN));
-	return (0);
-} */
