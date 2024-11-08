@@ -6,7 +6,7 @@
 #    By: tdaclin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 20:02:19 by tdaclin           #+#    #+#              #
-#    Updated: 2024/11/08 11:04:19 by tdaclin          ###   ########.fr        #
+#    Updated: 2024/11/08 16:46:10 by tdaclin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ BONUS_SRCS = \
 	ft_lstmap_bonus.c
 
 OBJS = $(SRCS:.c=.o)
-# BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 .PHONY: all clean fclean re bonus
 
@@ -74,8 +74,6 @@ all: $(NAME)
 $(NAME): $(OBJS) Makefile
 	ar rcs $(NAME) $(OBJS)
 
-# bonus: $(OBJS) $(BONUS_OBJS)
-# 	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 bonus:
 	make SRCS="$(SRCS) $(BONUS_SRCS)"
 
