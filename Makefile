@@ -6,7 +6,7 @@
 #    By: tdaclin <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 20:02:19 by tdaclin           #+#    #+#              #
-#    Updated: 2024/11/06 20:02:21 by tdaclin          ###   ########.fr        #
+#    Updated: 2024/11/08 11:04:19 by tdaclin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,29 +53,31 @@ SRCS = \
 	ft_putnbr_fd.c
 
 BONUS_SRCS = \
-	ft_lstnew.c \
-	ft_lstadd_front.c \
-	ft_lstsize.c \
-	ft_lstlast.c \
-	ft_lstadd_back.c \
-	ft_lstdelone.c \
-	ft_lstclear.c \
-	ft_lstiter.c \
-	ft_lstmap.c
+	ft_lstnew_bonus.c \
+	ft_lstadd_front_bonus.c \
+	ft_lstsize_bonus.c \
+	ft_lstlast_bonus.c \
+	ft_lstadd_back_bonus.c \
+	ft_lstdelone_bonus.c \
+	ft_lstclear_bonus.c \
+	ft_lstiter_bonus.c \
+	ft_lstmap_bonus.c
 
 OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+# BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
 
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) Makefile
 	ar rcs $(NAME) $(OBJS)
 
-bonus: $(NAME) $(BONUS_OBJS)
-	ar rcs $(NAME) $(BONUS_OBJS)
+# bonus: $(OBJS) $(BONUS_OBJS)
+# 	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+bonus:
+	make SRCS="$(SRCS) $(BONUS_SRCS)"
 
 %.o: %.c libft.h
 	$(CC) -c $(CFLAGS) $< -o $@
